@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+
+<script src="jquery-3.3.1.min.js"></script>
+<script>
+  
+
+ $(document).ready(function() {
+
+     // generate angka acak 1-12
+     // var angka = Math.floor((Math.random() * 19) + 1);
+
+     // // tambah awalan agar sesuai dengan id box
+     // var box_ajaib = "box"+angka;
+
+     // siapkan variabel counter
+     var jumlah_klik = 0 ;
+     var ketemu = "belum";
+     $("img").click(function() {	 
+
+        jumlah_klik++;
+        $("#hitung").html("Score = "+ (jumlah_klik*5+15)); //menghitung score
+
+
+       // ubah warna background box
+       if ($(this).attr("id")== "c1") {
+
+                $(this).css({
+                display: "none"
+                });
+                $("#b1").css({
+                display: "block"
+                });
+                ketemu = "sudah";
+                jumlah_klik = 0;
+  
+
+       }
+       else if($(this).attr("id")== "c2"){
+
+                $(this).css({
+                display: "none"
+                });
+                $("#b2").css({
+                display: "block"
+                });
+                ketemu = "sudah";                
+                jumlah_klik = 0; 
+                
+       }
+       else if($(this).attr("id")== "c3"){
+
+                $(this).css({
+                display: "none"
+                });
+                $("#b3").css({
+                display: "block"
+                });
+                ketemu = "sudah";
+                jumlah_klik = 0; 
+
+
+       }
+       else {
+         $(this).css({
+                display: "none"
+                });
+
+
+        }
+       //cek hasil game
+	   
+       if (ketemu=="sudah") {
+        $("#hasil").html("Kamu kalah");
+            setTimeout(function(){
+            alert("Kamu Kalah");
+            if(window.confirm){
+            window.location.reload();
+            }},500);
+		
+       }
+       if ((ketemu=="belum") && (jumlah_klik >= 17)) {
+        $("#hasil").html("Menang!!");
+            setTimeout(function(){
+            alert("Kamu Menang!!");
+            if(window.confirm){
+            window.location.reload();
+            }},500);
+		
+       }
+
+
+	   
+   });
+ });
+
+
+function bg(){
+
+    var cards = $(".shuffledv");
+    for(var i = 0; i < cards.length; i++){
+    var target = Math.floor(Math.random() * cards.length -1) + 1;
+    var target2 = Math.floor(Math.random() * cards.length -1) +1;
+    cards.eq(target).before(cards.eq(target2));
+}
+}
+
+
+</script>
+<style>
+
+     body {
+  background: #FFF0F5;
+  
+  
+}
+
+    .shuffledv {
+        background: #FFC0CB;
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+        margin: 10px;
+        float: left;
+        border-radius: 10px;
+    }
+
+    .container {
+    position: relative;
+
+
+}
+
+    .image {
+    position: absolute;
+    box-shadow: 1px 1px 1px rgba(0,0,0,.3);
+}
+    .hide {
+    z-index: 0;
+    pointer-events: none;
+}
+    .visi {
+    z-index: 1;
+}
+
+</style>
+</head>
+<body onload="bg()">
+
+    
+
+    
+    <div style="color: #F08080" align="center">
+        <h1>💕💣Heart Bom Game💣💕</h1>
+        <h3 id="hitung"></h3>
+        <h1 id="hasil"></h1>
+    </div>
+    
+    <div style="width: 50%; height: 50%; margin: auto; display: block;">
+
+    <div id="box1" class="shuffledv container">
+        <img id="c1" src="img/cover.jpg" width="80px" height="80px" style="display: block;"> 
+        <img id="b1" src="img/bom.jpg" width="80px" height="80px" style="display: none;">
+    </div>
+    <div id="box2" class="shuffledv container">
+        <img id="c2" src="img/cover.jpg" width="80px" height="80px" style="display: block;"> 
+        <img id="b2" src="img/bom.jpg" width="80px" height="80px" style="display: none;">
+    </div>
+    <div id="box3" class="shuffledv container">
+        <img id="c3" src="img/cover.jpg" width="80px" height="80px" style="display: block;"> 
+        <img id="b3" src="img/bom.jpg" width="80px" height="80px" style="display: none;"> 
+    </div>
+	<div id="box4" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px">
+    </div>
+
+
+    <div id="box5" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box6" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box7" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px">
+    </div>
+	<div id="box8" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+  
+
+    <div id="box9" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box10" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box11" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+	<div id="box12" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+  
+
+    <div id="box13" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box14" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box15" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+	<div id="box16" class="shuffledv container">
+     <img class="image visi" src="img/cover.jpg" width="80px" height="80px">   
+     <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+
+     <div id="box17" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box18" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box19" class="shuffledv container">
+        <img class="image visi" src="img/cover.jpg" width="80px" height="80px"> 
+        <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    <div id="box20" class="shuffledv container">
+     <img class="image visi" src="img/cover.jpg" width="80px" height="80px">   
+     <img class="image hide" src="img/2.jpeg" width="80px" height="80px" >
+    </div>
+    
+   
+</div>
+
+    
+</body>
+</html>
